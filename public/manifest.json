@@ -6,12 +6,13 @@
     "default_popup": "popup.html"
   },
   "background": {
-    "service_worker": "background.js"
+    "service_worker": "src/logic/browserScope/background.ts",
+    "type": "module"
   },
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
-      "js": ["content.js"]
+      "js": ["src/logic/pageScope/content.ts"]
     }
   ]
 }
