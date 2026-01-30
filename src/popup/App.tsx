@@ -1,9 +1,4 @@
-import Header from "./components/header/Header";
-
+import Body from "./components/body/Body";
 export default function App() {
-  return (
-    <div>
-      <Header />
-    </div>
-  );
+  return <Body />;
 }

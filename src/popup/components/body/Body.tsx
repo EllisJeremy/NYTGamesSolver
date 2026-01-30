@@ -1,9 +1,11 @@
 import Header from "../header/Header";
+import styles from "./body.module.css";
 
 export default function Body() {
   return (
-    <div>
+    <div className={styles.container}>
       <Header />
+      <div className={styles.body}></div>
     </div>
   );
 }
