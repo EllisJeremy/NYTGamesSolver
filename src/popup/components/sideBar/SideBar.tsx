@@ -1,4 +1,4 @@
-import styles from "./header.module.css";
+import styles from "./sideBar.module.css";
 import type { SelectGameButtonProps } from "../SelectGameButton/SelectGameButton";
 import connections from "../../../assets/connections.svg";
 import crossword from "../../../assets/crossword.svg";
@@ -41,7 +41,7 @@ const buttons: SelectGameButtonProps[] = [
   { imageAddress: sudoku, backgroundColor: colors.sudoku, game: "sudoku" },
 ];
 
-export default function Header() {
+export default function SideBar() {
   return (
     <div className={styles.container}>
       {buttons.map(({ imageAddress, backgroundColor, game }) => (
