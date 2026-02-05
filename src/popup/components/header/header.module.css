@@ -1,0 +1,22 @@
+.container {
+  display: flex;
+  width: 270px;
+  box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.35);
+}
+
+.logo {
+  padding: 5px;
+}
+
+.logo img {
+  width: 34px;
+  height: 34px;
+}
+
+.title {
+  padding: 5px;
+}
+
+.title img {
+  height: 32px;
+}
