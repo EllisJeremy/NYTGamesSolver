@@ -1,19 +1,21 @@
-button {
+.button {
   border-radius: 15%;
   width: 32px;
   height: 32px;
   border: none;
   padding: 4px;
-  transition: 0.1s;
   cursor: pointer;
+
+  box-shadow: 2px 2px 0 color-mix(in srgb, var(--shadow-color), black 35%);
+  transition:
+    transform 0.08s ease,
+    box-shadow 0.08s ease;
 }
 
-button:hover {
-  transform: scale(1.05);
-}
-
-button:active {
-  transform: scale(0.95);
+.button:active,
+.button.active {
+  transform: translate(2px, 2px);
+  box-shadow: inset 2px 2px 0 rgba(0, 0, 0, 0.35);
 }
 
 img {

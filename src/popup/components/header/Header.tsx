@@ -13,25 +13,42 @@ import SelectGameButton from "../SelectGameButton/SelectGameButton";
 import { colors } from "../../utils/styles";
 
 const buttons: SelectGameButtonProps[] = [
-  { imageAddress: wordle, backgroundColor: colors.wordle },
-  { imageAddress: strands, backgroundColor: colors.strands },
-  { imageAddress: connections, backgroundColor: colors.connections },
-  { imageAddress: crossword, backgroundColor: colors.crossword },
-  { imageAddress: letterBoxed, backgroundColor: colors.letterBoxed },
-  { imageAddress: mini, backgroundColor: colors.mini },
-  { imageAddress: pips, backgroundColor: colors.pips },
-  { imageAddress: spellingBee, backgroundColor: colors.spellingBee },
+  { imageAddress: wordle, backgroundColor: colors.wordle, game: "wordle" },
+  { imageAddress: strands, backgroundColor: colors.strands, game: "strands" },
+  {
+    imageAddress: connections,
+    backgroundColor: colors.connections,
+    game: "connections",
+  },
+  {
+    imageAddress: crossword,
+    backgroundColor: colors.crossword,
+    game: "crossword",
+  },
+  {
+    imageAddress: letterBoxed,
+    backgroundColor: colors.letterBoxed,
+    game: "letterBoxed",
+  },
+  { imageAddress: mini, backgroundColor: colors.mini, game: "mini" },
+  { imageAddress: pips, backgroundColor: colors.pips, game: "pips" },
+  {
+    imageAddress: spellingBee,
+    backgroundColor: colors.spellingBee,
+    game: "spellingBee",
+  },
 
-  { imageAddress: sudoku, backgroundColor: colors.sudoku },
+  { imageAddress: sudoku, backgroundColor: colors.sudoku, game: "sudoku" },
 ];
 
 export default function Header() {
   return (
     <div className={styles.container}>
-      {buttons.map(({ imageAddress, backgroundColor }) => (
+      {buttons.map(({ imageAddress, backgroundColor, game }) => (
         <SelectGameButton
           imageAddress={imageAddress}
           backgroundColor={backgroundColor}
+          game={game}
         />
       ))}
     </div>
