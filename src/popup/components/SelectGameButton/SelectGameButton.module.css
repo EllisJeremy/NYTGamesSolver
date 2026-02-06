@@ -12,7 +12,6 @@
     box-shadow 0.08s ease;
 }
 
-.button:active,
 .button.active {
   transform: translate(2px, 2px);
   box-shadow: inset 2px 2px 0 rgba(0, 0, 0, 0.35);

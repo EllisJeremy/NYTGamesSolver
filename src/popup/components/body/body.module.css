@@ -1,2 +1,35 @@
 .container {
+  display: flex;
+}
+
+.body {
+  width: 100%;
+  height: inherit;
+  background-color: rgb(195, 195, 195);
+  border-radius: 10px;
+  margin-bottom: 10px;
+  margin-right: 10px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: inset 2px 2px 1px rgba(0, 0, 0, 0.3);
+}
+
+.tile {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 10px;
+  width: inherit;
+  height: 100%;
+  background-color: rgb(240, 240, 240);
+  border-radius: 10px;
+  box-sizing: border-box;
+  box-shadow: inset -2px -2px 1px rgba(0, 0, 0, 0.3);
+}
+
+.solve {
+  border-radius: 7px;
+  background-color: white;
+  border: none;
+  height: 30px;
 }
