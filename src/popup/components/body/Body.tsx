@@ -4,6 +4,7 @@ import Header from "../header/Header";
 import { usePopupStore } from "../../state/usePopupStore";
 import { AnimatePresence, motion } from "framer-motion";
 import { colors } from "../../utils/styles";
+import WordleTitle from "../wordle/wordleTitle";
 
 export default function Body() {
   const { currentSolver } = usePopupStore();
@@ -23,7 +24,7 @@ export default function Body() {
               exit={{ y: 400, scale: 0.92 }}
               transition={{ duration: 0.3 }}
             >
-              {currentSolver}
+              {currentSolver === "wordle" && <WordleTitle />}
               <button className={styles.solve}>Solve</button>
             </motion.div>
           </AnimatePresence>
