@@ -9,17 +9,15 @@
   cursor: pointer;
 
   box-shadow: inset -2px -2px 0 rgba(0, 0, 0, 0.35);
-  transition:
-    transform 0.08s ease,
-    box-shadow 0.08s ease;
+  transition: 0.25s ease;
 }
 
 .button.active {
-  width: 32px;
-  height: 32px;
   transform: translate(2px, 2px);
   box-shadow: inset 2px 2px 0 rgba(0, 0, 0, 0.35);
   padding: 4px;
+  padding-top: 6px;
+  padding-left: 6px;
 }
 
 img {
