@@ -19,6 +19,7 @@
   flex-direction: column;
   justify-content: space-between;
   padding: 10px;
+  padding-right: 12px;
   width: inherit;
   height: 100%;
   background-color: rgb(240, 240, 240);

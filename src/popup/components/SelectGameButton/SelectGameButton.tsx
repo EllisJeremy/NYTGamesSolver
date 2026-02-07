@@ -19,12 +19,7 @@ export default function SelectGameButton({
       className={`${styles.button} ${
         currentSolver === game ? styles.active : ""
       }`}
-      style={
-        {
-          backgroundColor,
-          "--shadow-color": backgroundColor,
-        } as React.CSSProperties
-      }
+      style={{ backgroundColor }}
     >
       <img src={imageAddress} />
     </button>

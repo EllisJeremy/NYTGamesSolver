@@ -1,20 +1,25 @@
 .button {
   border-radius: 15%;
-  width: 32px;
-  height: 32px;
+  width: 34px;
+  height: 34px;
   border: none;
   padding: 4px;
+  padding-bottom: 6px;
+  padding-right: 6px;
   cursor: pointer;
 
-  box-shadow: 2px 2px 0 color-mix(in srgb, var(--shadow-color), black 35%);
+  box-shadow: inset -2px -2px 0 rgba(0, 0, 0, 0.35);
   transition:
     transform 0.08s ease,
     box-shadow 0.08s ease;
 }
 
 .button.active {
+  width: 32px;
+  height: 32px;
   transform: translate(2px, 2px);
   box-shadow: inset 2px 2px 0 rgba(0, 0, 0, 0.35);
+  padding: 4px;
 }
 
 img {
