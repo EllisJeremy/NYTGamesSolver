@@ -44,4 +44,5 @@
   height: 8px;
   flex: 1;
   margin: 0px -2px;
+  transform-origin: left center;
 }

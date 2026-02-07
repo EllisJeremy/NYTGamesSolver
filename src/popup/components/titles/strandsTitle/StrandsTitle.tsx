@@ -61,10 +61,11 @@ export default function StrandsTitle() {
               className={styles.connector}
               variants={{
                 initial: {
-                  width: 0,
+                  scaleX: 0,
+                  backgroundColor: "rgb(219, 216, 197)",
                 },
                 animate: {
-                  width: "100%",
+                  scaleX: 1,
                   backgroundColor: "rgb(219, 216, 197)",
                   transition: {
                     delay: i * 0.15 + 0.3,
@@ -72,12 +73,12 @@ export default function StrandsTitle() {
                   },
                 },
                 final: {
+                  scaleX: 1,
                   backgroundColor: "#fbcc13",
-                  transition: {
-                    duration: 0,
-                  },
+                  transition: { duration: 0 },
                 },
                 pop: {
+                  scaleX: 1,
                   backgroundColor: "#fbcc13",
                 },
               }}
