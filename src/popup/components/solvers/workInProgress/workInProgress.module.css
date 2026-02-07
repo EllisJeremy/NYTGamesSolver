@@ -1,7 +1,51 @@
 .container {
   display: flex;
   flex-direction: column;
-
+  justify-content: center;
   width: inherit;
   height: 100%;
+}
+
+.caution,
+.caution2 {
+  margin-left: -20px;
+  margin-right: -10px;
+  width: 130%;
+  height: 20px;
+  background: repeating-linear-gradient(
+    45deg,
+    #f4d000 0px,
+    #f4d000 20px,
+    #252525 20px,
+    #252525 40px
+  );
+
+  transform: rotate(-10deg);
+}
+
+.caution2 {
+  margin-left: -25px;
+}
+.info {
+  height: 35px;
+  transform: rotate(-10deg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+}
+/* this is temporary and will be deprecated*/
+.shadow,
+.shadow2 {
+  position: absolute;
+  z-index: 5;
+  width: calc(100% - 10px);
+  height: 20.5px;
+  box-shadow: inset -2px 0px 0px #0000004d;
+
+  top: 128.8px;
+}
+
+.shadow2 {
+  top: 183.5px;
 }

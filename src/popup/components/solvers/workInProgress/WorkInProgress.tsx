@@ -1,5 +1,15 @@
 import styles from "./workInProgress.module.css";
 
 export default function WorkInProgress() {
-  return <div className={styles.container}>WIO</div>;
+  return (
+    <div className={styles.container}>
+      <div>
+        <div className={styles.shadow} />
+        <div className={styles.caution} />
+        <div className={styles.info}>Not Complete</div>
+        <div className={styles.shadow2} />
+        <div className={styles.caution2} />
+      </div>
+    </div>
+  );
 }
