@@ -3,8 +3,8 @@ import styles from "./body.module.css";
 import Header from "../header/Header";
 import { usePopupStore } from "../../state/usePopupStore";
 import { AnimatePresence, motion } from "framer-motion";
-import { colors } from "../../utils/styles";
-import WordleTitle from "../wordle/wordleTitle";
+import WordleTitle from "../titles/wordleTitle/wordleTitle";
+import StrandsTitle from "../titles/strandsTitle/StrandsTitle";
 
 export default function Body() {
   const { currentSolver } = usePopupStore();
@@ -17,7 +17,7 @@ export default function Body() {
           <AnimatePresence mode="wait">
             <motion.div
               className={styles.tile}
-              style={{ backgroundColor: colors[currentSolver] }}
+              style={{ backgroundColor: "rgb(240, 240, 240)" }}
               key={currentSolver}
               initial={{ y: 400, scale: 0.96 }}
               animate={{ y: 0, scale: 1 }}
@@ -25,6 +25,7 @@ export default function Body() {
               transition={{ duration: 0.3 }}
             >
               {currentSolver === "wordle" && <WordleTitle />}
+              {currentSolver === "strands" && <StrandsTitle />}
               <button className={styles.solve}>Solve</button>
             </motion.div>
           </AnimatePresence>
