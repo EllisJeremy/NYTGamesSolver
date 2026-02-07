@@ -19,36 +19,11 @@
   flex-direction: column;
   justify-content: space-between;
   padding: 10px;
-  padding-right: 12px;
+  padding-right: 10px;
   width: inherit;
   height: 100%;
   background-color: rgb(240, 240, 240);
   border-radius: 10px;
   box-sizing: border-box;
   box-shadow: inset -2px -2px 1px rgba(0, 0, 0, 0.3);
-}
-
-.solve {
-  border-radius: 7px;
-  background-color: white;
-  border: none;
-  height: 40px;
-  cursor: pointer;
-  padding: 0px;
-  padding-right: 2px;
-  padding-bottom: 2px;
-  box-shadow: inset -2px -2px 1px rgba(0, 0, 0, 0.3);
-  transition: 0.25s ease;
-  margin-left: -2px;
-  margin-top: -2px;
-}
-
-.solve:active {
-  padding: 0px;
-  padding-left: 2px;
-  padding-top: 2px;
-
-  margin: 0px;
-
-  box-shadow: inset 2px 2px 1px rgba(0, 0, 0, 0.3);
 }

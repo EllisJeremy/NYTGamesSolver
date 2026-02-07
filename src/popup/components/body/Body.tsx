@@ -3,11 +3,11 @@ import styles from "./body.module.css";
 import Header from "../header/Header";
 import { usePopupStore } from "../../state/usePopupStore";
 import { AnimatePresence, motion } from "framer-motion";
-import WordleTitle from "../titles/wordleTitle/wordleTitle";
-import StrandsTitle from "../titles/strandsTitle/StrandsTitle";
+import { solverRouter } from "../../utils/solverRouter";
 
 export default function Body() {
   const { currentSolver } = usePopupStore();
+  const Solver = solverRouter[currentSolver];
   return (
     <>
       <Header />
@@ -24,9 +24,7 @@ export default function Body() {
               exit={{ y: 400, scale: 0.92 }}
               transition={{ duration: 0.3 }}
             >
-              {currentSolver === "wordle" && <WordleTitle />}
-              {currentSolver === "strands" && <StrandsTitle />}
-              <button className={styles.solve}>Solve</button>
+              <Solver />
             </motion.div>
           </AnimatePresence>
         </div>
