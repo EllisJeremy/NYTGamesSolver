@@ -9,7 +9,6 @@ export default function WordleSolver() {
       <button
         className={styles.solve}
         onClick={() => {
-          console.log("popup ping");
           chrome.tabs.query({ active: true, currentWindow: true }, ([tab]) => {
             if (!tab?.id) return;
             chrome.tabs.sendMessage(tab.id, { type: "PING" });
