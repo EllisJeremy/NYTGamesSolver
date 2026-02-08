@@ -6,7 +6,18 @@ export default function WordleSolver() {
     <div className={styles.container}>
       <WordleTitle />
 
-      <button className={styles.solve}>Solve</button>
+      <button
+        className={styles.solve}
+        onClick={() => {
+          console.log("popup ping");
+          chrome.tabs.query({ active: true, currentWindow: true }, ([tab]) => {
+            if (!tab?.id) return;
+            chrome.tabs.sendMessage(tab.id, { type: "PING" });
+          });
+        }}
+      >
+        Solve
+      </button>
     </div>
   );
 }

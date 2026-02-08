@@ -6,7 +6,7 @@ export default function WorkInProgress() {
       <div>
         <div className={styles.shadow} />
         <div className={styles.caution} />
-        <div className={styles.info}>Not Complete</div>
+        <div className={styles.info}>Work in Progress</div>
         <div className={styles.shadow2} />
         <div className={styles.caution2} />
       </div>
