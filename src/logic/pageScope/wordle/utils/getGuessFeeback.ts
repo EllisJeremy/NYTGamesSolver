@@ -10,10 +10,13 @@ export default function getGuessFeedback(wordIndex: number) {
     const [positionString, letter, accuracy] =
       v.childNodes[0].ariaLabel.split(", ");
     const position = Number(positionString[0]) - 1;
-    const letterGuess: LetterGuessType = { position, letter, accuracy };
+    const letterGuess: LetterGuessType = {
+      position,
+      letter: letter.toLowerCase(),
+      accuracy,
+    };
     return letterGuess;
   });
-  console.log(letters);
 
   return letters;
 }
