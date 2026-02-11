@@ -1,10 +1,18 @@
 import styles from "./wordleSolver.module.css";
 import WordleTitle from "../wordleTitle/WordleTitle";
+import { useState } from "react";
+import Feedback from "../../shared/feedback/Feedback";
 
 export default function WordleSolver() {
+  const [guesses, setGuesses] = useState(2);
+  const [error, setError] = useState("Not on Page");
+
   return (
     <div className={styles.container}>
-      <WordleTitle />
+      <div>
+        <WordleTitle />
+        <Feedback guesses={guesses} error={error} />
+      </div>
 
       <button
         className={styles.solve}

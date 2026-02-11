@@ -8,3 +8,8 @@ export type GameEnum =
   | "pips"
   | "spellingBee"
   | "sudoku";
+
+export type wordleFeedback = {
+  guesses: number | undefined;
+  error: string;
+};

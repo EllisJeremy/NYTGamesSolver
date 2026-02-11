@@ -1,6 +1,6 @@
 body {
   margin: 0;
-  font-family: "gamesFont";
+  font-family: "gamesFontThin";
 }
 
 button {
@@ -10,6 +10,14 @@ button {
 @font-face {
   font-family: "gamesFont";
   src: url("fonts/karnakcondensed-normal-700.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "gamesFontThin";
+  src: url("font/karnak-small-normal-400.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
   font-display: swap;

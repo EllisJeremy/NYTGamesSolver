@@ -20,7 +20,7 @@ export default async function wordleSolver(): Promise<number | undefined> {
 
     const feedback = getGuessFeedback(rowIndex);
     updateHints(absent, present, correct, feedback);
-    if (correct.filter((x) => x === null).length === 0) return rowIndex;
+    if (correct.filter((x) => x === null).length === 0) return rowIndex + 1;
 
     shrinkAnswerSpace(absent, present, correct, answerSpace);
 
