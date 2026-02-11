@@ -22,6 +22,7 @@ export default async function wordleSolver() {
 
     updateHints(absent, present, correct, feedback);
     shrinkAnswerSpace(absent, present, correct, answerSpace);
+    console.log(answerSpace);
     return;
   }
 }
