@@ -18,13 +18,11 @@ export default function shrinkAnswerSpace(
       return acc;
     }, {});
 
-    // green + absent checks
     for (let i = 0; i < word.length; i++) {
       if (correct[i] && word[i] !== correct[i]) return false;
-      if (absent.has(word[i]) && present[word[i]].minCount === 0) return false;
+      if (absent.has(word[i])) return false;
     }
 
-    // yellow + frequency checks
     for (const letter of Object.keys(present)) {
       if ((counts[letter] ?? 0) < present[letter].minCount) return false;
 

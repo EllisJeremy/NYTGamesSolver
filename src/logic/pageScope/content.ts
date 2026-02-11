@@ -1,8 +1,10 @@
 import wordleSolver from "./wordle/wordle";
 
-chrome.runtime.onMessage.addListener((msg) => {
+chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
   if (msg.type === "PING") {
-    console.log("PING received from popup");
-    wordleSolver();
+    wordleSolver().then((count) => {
+      sendResponse({ count });
+    });
+    return true;
   }
 });

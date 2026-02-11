@@ -11,7 +11,15 @@ export default function WordleSolver() {
         onClick={() => {
           chrome.tabs.query({ active: true, currentWindow: true }, ([tab]) => {
             if (!tab?.id) return;
-            chrome.tabs.sendMessage(tab.id, { type: "PING" });
+
+            chrome.tabs.sendMessage(tab.id, { type: "PING" }, (response) => {
+              if (chrome.runtime.lastError) {
+                console.error(chrome.runtime.lastError.message);
+                return;
+              }
+
+              console.log("Guesses:", response?.count);
+            });
           });
         }}
       >
