@@ -1,25 +1,31 @@
 .full {
   display: flex;
   flex-direction: column;
-  margin-top: 20px;
+  margin-top: 10px;
 }
 
 .container {
   margin: 10px 0px;
-  border-radius: 7px;
-  background-color: rgb(255, 255, 255);
-
-  box-shadow: inset 1px 1px 1px rgba(0, 0, 0, 0.3);
-  padding: 5px;
+  border-radius: 5px;
+  background-color: white;
+  padding: 0px 5px;
 }
 
 .row {
   display: flex;
   justify-content: space-between;
+  background-color: white;
+  padding: 5px 0px;
+}
+
+.background {
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(0, 0, 0, 0.3);
+  gap: 1px;
 }
 
 .row p {
-  font-size: 15px;
   margin: 0px;
-  font-size: 18px;
+  font-size: 15px;
 }

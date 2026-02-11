@@ -6,6 +6,7 @@ import Feedback from "../../shared/feedback/Feedback";
 export default function WordleSolver() {
   const [guesses, setGuesses] = useState(2);
   const [error, setError] = useState("Not on Page");
+  const [];
 
   return (
     <div className={styles.container}>
