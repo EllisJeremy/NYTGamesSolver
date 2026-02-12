@@ -1,4 +1,4 @@
-import type { StrandsRes } from "./strandsTypes/strandsTypes";
+import type { StrandsRes } from "../../../types/responseTypes";
 
 export default async function strandsSolver() {
   const res: StrandsRes = {

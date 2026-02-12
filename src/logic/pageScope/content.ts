@@ -1,9 +1,6 @@
 import wordleSolver from "./wordle/wordle";
 import strandsSolver from "./strands/strands";
-import type { WordleRes } from "../../types/responseTypes";
-import type { StrandsRes } from "./strands/strandsTypes/strandsTypes";
-
-type ResType = WordleRes | StrandsRes;
+import type { ResType } from "../../types/responseTypes";
 
 const router: Record<string, () => Promise<ResType>> = {
   wordle: wordleSolver,

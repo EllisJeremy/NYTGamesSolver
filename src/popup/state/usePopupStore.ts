@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import type { GameEnum } from "../types/types";
+import type { GameEnum } from "../../types/gameEnum";
 
 type PopUpStoreType = {
   currentSolver: GameEnum;

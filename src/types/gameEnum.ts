@@ -8,11 +8,3 @@ export type GameEnum =
   | "pips"
   | "spellingBee"
   | "sudoku";
-
-export type WordleRes = {
-  guesses: number;
-  answer: string;
-  status: string;
-  totalTime: number;
-  computeTime: number;
-};

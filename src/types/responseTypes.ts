@@ -5,3 +5,13 @@ export type WordleRes = {
   totalTime: number;
   computeTime: number;
 };
+
+export type StrandsRes = {
+  spangram: string;
+  words: string[];
+  guesses: number;
+  status: string;
+  totalTime: number;
+};
+
+export type ResType = WordleRes | StrandsRes;

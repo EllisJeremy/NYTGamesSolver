@@ -1,20 +1,24 @@
 import styles from "./solver.module.css";
-
 import Feedback from "../../shared/feedback/Feedback";
+import type { GameEnum } from "../../../../../types/gameEnum";
 
-export default function Solver({
+type SolverProps<T> = {
+  setStatus: (status: string) => void;
+  setStateFromRes: (response: T) => void;
+  status: string;
+  feedback: Record<string, string | number>;
+  Title: React.FunctionComponent;
+  type: GameEnum;
+};
+
+export default function Solver<T>({
   setStatus,
   setStateFromRes,
   status,
   feedback,
   Title,
-}: {
-  setStatus: (status: string) => void;
-  setStateFromRes: (response: any) => void;
-  status: string;
-  feedback: Record<string, string | number>;
-  Title: React.FunctionComponent;
-}) {
+  type,
+}: SolverProps<T>) {
   return (
     <div className={styles.container}>
       <div>
@@ -30,7 +34,7 @@ export default function Solver({
           chrome.tabs.query({ active: true, currentWindow: true }, ([tab]) => {
             if (!tab?.id) return;
 
-            chrome.tabs.sendMessage(tab.id, { type: "wordle" }, (response) => {
+            chrome.tabs.sendMessage(tab.id, { type }, (response) => {
               if (chrome.runtime.lastError) {
                 console.error(chrome.runtime.lastError.message);
                 setStatus("Game Not Found");

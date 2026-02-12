@@ -1,31 +1,32 @@
 import { useState } from "react";
 import Solver from "../shared/solver/Solver";
 import StrandsTitle from "./strandsTitle/StrandsTitle";
+import type { StrandsRes } from "../../../../types/responseTypes";
 
 export default function StrandsSolver() {
+  const [spangram, setSpangram] = useState("");
+  const [words, setWords] = useState<string[]>([]);
   const [guesses, setGuesses] = useState(0);
   const [status, setStatus] = useState("Ready");
   const [totalTime, setTotalTime] = useState(0);
-  const [computeTime, setComputeTime] = useState(0);
-  const [answer, setAnswer] = useState("");
 
-  function setStateFromRes(response: any) {
+  function setStateFromRes(response: StrandsRes) {
     setStatus(response.status);
-    setAnswer(response.answer);
+    setSpangram(response.spangram);
+    setWords(response.words);
     setGuesses(response.guesses);
     setTotalTime(response.totalTime);
-    setComputeTime(response.computeTime);
   }
 
   const feedback = {
-    Answer: answer,
+    Spangram: spangram,
     Guesses: guesses,
     "Total Time": totalTime,
-    "Compute Time": computeTime,
   };
 
   return (
-    <Solver
+    <Solver<StrandsRes>
+      type="strands"
       Title={StrandsTitle}
       setStateFromRes={setStateFromRes}
       status={status}

@@ -1,5 +1,5 @@
 import styles from "./SelectGameButton.module.css";
-import type { GameEnum } from "../../types/types";
+import type { GameEnum } from "../../../types/gameEnum";
 import { usePopupStore } from "../../state/usePopupStore";
 
 export type SelectGameButtonProps = {

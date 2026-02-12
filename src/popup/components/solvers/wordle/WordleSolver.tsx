@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Solver from "../shared/solver/Solver";
 import WordleTitle from "./wordleTitle/WordleTitle";
+import type { WordleRes } from "../../../../types/responseTypes";
 
 export default function WordleSolver() {
   const [guesses, setGuesses] = useState(0);
@@ -9,7 +10,7 @@ export default function WordleSolver() {
   const [computeTime, setComputeTime] = useState(0);
   const [answer, setAnswer] = useState("");
 
-  function setStateFromRes(response: any) {
+  function setStateFromRes(response: WordleRes) {
     setStatus(response.status);
     setAnswer(response.answer);
     setGuesses(response.guesses);
@@ -25,7 +26,8 @@ export default function WordleSolver() {
   };
 
   return (
-    <Solver
+    <Solver<WordleRes>
+      type="wordle"
       Title={WordleTitle}
       setStateFromRes={setStateFromRes}
       status={status}

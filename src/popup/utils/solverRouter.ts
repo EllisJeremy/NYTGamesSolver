@@ -1,4 +1,4 @@
-import type { GameEnum } from "../types/types";
+import type { GameEnum } from "../../types/gameEnum";
 import WordleSolver from "../components/solvers/wordle/WordleSolver";
 import WorkInProgress from "../components/solvers/workInProgress/WorkInProgress";
 import StrandsSolver from "../components/solvers/strands/StrandsSolver";
