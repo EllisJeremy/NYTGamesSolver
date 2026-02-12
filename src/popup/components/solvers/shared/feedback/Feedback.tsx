@@ -1,21 +1,13 @@
 import styles from "./feedback.module.css";
-import type { WordleRes } from "../../../../types/types";
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function Feedback({
   status,
-  answer,
-  guesses,
-  totalTime,
-  computeTime,
-}: WordleRes) {
-  const info = {
-    Answer: answer,
-    Guesses: guesses,
-    "Total Time": totalTime,
-    "Compute Time": computeTime,
-  };
-
+  feedback,
+}: {
+  status: string;
+  feedback: Record<string, string | number>;
+}) {
   return (
     <div className={styles.full}>
       <div className={styles.container}>
@@ -34,7 +26,7 @@ export default function Feedback({
             transition={{ duration: 0.4 }}
           >
             <div className={styles.background}>
-              {Object.entries(info).map(([label, value]) => (
+              {Object.entries(feedback).map(([label, value]) => (
                 <div className={styles.row} key={label}>
                   <p>{label}:</p>
                   <p>
