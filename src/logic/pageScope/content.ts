@@ -1,9 +1,13 @@
 import wordleSolver from "./wordle/wordle";
 import strandsSolver from "./strands/strands";
 import type { WordleRes } from "./wordle/wordleTypes/wordleTypes";
+import type { StrandsRes } from "./strands/strandsTypes/strandsTypes";
 
-const router: Record<string, () => Promise<WordleRes>> = {
+type ResType = WordleRes | StrandsRes;
+
+const router: Record<string, () => Promise<ResType>> = {
   wordle: wordleSolver,
+  strands: strandsSolver,
 };
 
 chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
