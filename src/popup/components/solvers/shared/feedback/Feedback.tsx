@@ -1,5 +1,6 @@
 import styles from "./feedback.module.css";
 import type { WordleRes } from "../../../../types/types";
+import { motion, AnimatePresence } from "framer-motion";
 
 export default function Feedback({
   status,
@@ -23,19 +24,29 @@ export default function Feedback({
           <p>{status}</p>
         </div>
       </div>
-      <div className={styles.container}>
-        <div className={styles.background}>
-          {Object.entries(info).map(([label, value]) => (
-            <div className={styles.row} key={label}>
-              <p>{label}:</p>
-              <p>
-                {value}
-                {label.includes("Time") && "s"}
-              </p>
+      <AnimatePresence>
+        {status === "Solved" && (
+          <motion.div
+            className={styles.container}
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.4 }}
+          >
+            <div className={styles.background}>
+              {Object.entries(info).map(([label, value]) => (
+                <div className={styles.row} key={label}>
+                  <p>{label}:</p>
+                  <p>
+                    {value}
+                    {label.includes("Time") && "s"}
+                  </p>
+                </div>
+              ))}
             </div>
-          ))}
-        </div>
-      </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }

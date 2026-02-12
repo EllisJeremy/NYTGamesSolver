@@ -5,7 +5,7 @@ import Feedback from "../../shared/feedback/Feedback";
 
 export default function WordleSolver() {
   const [guesses, setGuesses] = useState(0);
-  const [status, setStatus] = useState("Not on Page");
+  const [status, setStatus] = useState("Ready");
   const [totalTime, setTotalTime] = useState(0);
   const [computeTime, setComputeTime] = useState(0);
   const [answer, setAnswer] = useState("");
@@ -26,20 +26,26 @@ export default function WordleSolver() {
       <button
         className={styles.solve}
         onClick={() => {
-          console.log("here");
+          setStatus("Loading...");
+
           chrome.tabs.query({ active: true, currentWindow: true }, ([tab]) => {
             if (!tab?.id) return;
 
             chrome.tabs.sendMessage(tab.id, { type: "PING" }, (response) => {
               if (chrome.runtime.lastError) {
                 console.error(chrome.runtime.lastError.message);
+                setStatus("Game Not Found");
                 return;
               }
-              console.log(response);
+
+              if (!response) {
+                setStatus("Game Not Found");
+                return;
+              }
 
               if (!response) return;
-              setAnswer(response.answer);
               setStatus(response.status);
+              setAnswer(response.answer);
               setGuesses(response.guesses);
               setTotalTime(response.totalTime);
               setComputeTime(response.computeTime);

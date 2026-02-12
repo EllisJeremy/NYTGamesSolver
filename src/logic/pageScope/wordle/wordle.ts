@@ -40,7 +40,7 @@ export default async function wordleSolver(): Promise<WordleRes> {
       const endTime = performance.now();
       const totalTime = endTime - startTime;
       res["answer"] = guess;
-      res["status"] = "Complete";
+      res["status"] = "Solved";
       res["guesses"] = rowIndex + 1;
       res["totalTime"] = Math.round(totalTime) / 1000;
       res["computeTime"] = Math.round(totalTime - DELAY * rowIndex + 1) / 1000;
