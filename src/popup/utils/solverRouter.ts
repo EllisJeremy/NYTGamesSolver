@@ -1,10 +1,11 @@
 import type { GameEnum } from "../types/types";
 import WordleSolver from "../components/solvers/wordle/wordleSolver/WordleSolver";
 import WorkInProgress from "../components/solvers/workInProgress/WorkInProgress";
+import StrandsSolver from "../components/solvers/strands/strandsSolver/StrandsSolver";
 
 export const solverRouter: Record<GameEnum, React.ComponentType> = {
   wordle: WordleSolver,
-  strands: WorkInProgress,
+  strands: StrandsSolver,
   connections: WorkInProgress,
   crossword: WorkInProgress,
   letterBoxed: WorkInProgress,
