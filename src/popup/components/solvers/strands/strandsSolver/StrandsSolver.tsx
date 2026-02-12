@@ -31,7 +31,7 @@ export default function StrandsSolver() {
           chrome.tabs.query({ active: true, currentWindow: true }, ([tab]) => {
             if (!tab?.id) return;
 
-            chrome.tabs.sendMessage(tab.id, { type: "PING" }, (response) => {
+            chrome.tabs.sendMessage(tab.id, { type: "strands" }, (response) => {
               if (chrome.runtime.lastError) {
                 console.error(chrome.runtime.lastError.message);
                 setStatus("Game Not Found");
