@@ -1,6 +1,6 @@
 import wordleSolver from "./wordle/wordle";
 import strandsSolver from "./strands/strands";
-import type { WordleRes } from "./wordle/wordleTypes/wordleTypes";
+import type { WordleRes } from "../../types/responseTypes";
 import type { StrandsRes } from "./strands/strandsTypes/strandsTypes";
 
 type ResType = WordleRes | StrandsRes;
