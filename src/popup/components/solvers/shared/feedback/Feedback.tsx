@@ -1,10 +1,17 @@
 import styles from "./feedback.module.css";
-import type { wordleFeedback } from "../../../../types/types";
+import type { WordleRes } from "../../../../types/types";
 
-export default function Feedback({ guesses, error }: wordleFeedback) {
+export default function Feedback({
+  status,
+  guesses,
+  totalTime,
+  computeTime,
+}: WordleRes) {
   const info = {
     Result: "crane",
     Guesses: guesses,
+    "Total Time": totalTime,
+    "Compute Time": computeTime,
   };
 
   return (
@@ -12,15 +19,18 @@ export default function Feedback({ guesses, error }: wordleFeedback) {
       <div className={styles.container}>
         <div className={styles.row}>
           <p>Status:</p>
-          <p>{error}</p>
+          <p>{status}</p>
         </div>
       </div>
       <div className={styles.container}>
         <div className={styles.background}>
           {Object.entries(info).map(([label, value]) => (
-            <div className={styles.row}>
+            <div className={styles.row} key={label}>
               <p>{label}:</p>
-              <p>{value}</p>
+              <p>
+                {value}
+                {label.includes("Time") && "s"}
+              </p>
             </div>
           ))}
         </div>

@@ -9,7 +9,9 @@ export type GameEnum =
   | "spellingBee"
   | "sudoku";
 
-export type wordleFeedback = {
-  guesses: number | undefined;
-  error: string;
+export type WordleRes = {
+  guesses: number;
+  status: string;
+  totalTime: number;
+  computeTime: number;
 };

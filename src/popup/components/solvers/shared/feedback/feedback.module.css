@@ -21,7 +21,7 @@
 .background {
   display: flex;
   flex-direction: column;
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(0, 0, 0, 0.1);
   gap: 1px;
 }
 
