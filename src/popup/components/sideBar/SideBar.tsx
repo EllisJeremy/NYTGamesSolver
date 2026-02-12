@@ -46,6 +46,7 @@ export default function SideBar() {
     <div className={styles.container}>
       {buttons.map(({ imageAddress, backgroundColor, game }) => (
         <SelectGameButton
+          key={game}
           imageAddress={imageAddress}
           backgroundColor={backgroundColor}
           game={game}

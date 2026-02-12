@@ -3,12 +3,13 @@ import type { WordleRes } from "../../../../types/types";
 
 export default function Feedback({
   status,
+  answer,
   guesses,
   totalTime,
   computeTime,
 }: WordleRes) {
   const info = {
-    Result: "crane",
+    Answer: answer,
     Guesses: guesses,
     "Total Time": totalTime,
     "Compute Time": computeTime,

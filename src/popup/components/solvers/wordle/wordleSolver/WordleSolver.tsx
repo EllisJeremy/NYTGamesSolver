@@ -6,14 +6,16 @@ import Feedback from "../../shared/feedback/Feedback";
 export default function WordleSolver() {
   const [guesses, setGuesses] = useState(0);
   const [status, setStatus] = useState("Not on Page");
-  const [totalTime, setTotalTime] = useState(10);
+  const [totalTime, setTotalTime] = useState(0);
   const [computeTime, setComputeTime] = useState(0);
+  const [answer, setAnswer] = useState("");
 
   return (
     <div className={styles.container}>
       <div>
         <WordleTitle />
         <Feedback
+          answer={answer}
           status={status}
           guesses={guesses}
           totalTime={totalTime}
@@ -36,6 +38,7 @@ export default function WordleSolver() {
               console.log(response);
 
               if (!response) return;
+              setAnswer(response.answer);
               setStatus(response.status);
               setGuesses(response.guesses);
               setTotalTime(response.totalTime);

@@ -14,6 +14,7 @@ export type LetterInfo = {
 export type PresentType = Record<string, LetterInfo>;
 
 export type WordleRes = {
+  answer: string;
   guesses: number;
   status: string;
   totalTime: number;

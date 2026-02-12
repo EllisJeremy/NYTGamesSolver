@@ -18,7 +18,8 @@ export default async function wordleSolver(): Promise<WordleRes> {
   const DELAY = 2020;
 
   const res = {
-    status: "Not on Page",
+    answer: "",
+    status: "Failed",
     guesses: -1,
     totalTime: -1,
     computeTime: -1,
@@ -29,10 +30,16 @@ export default async function wordleSolver(): Promise<WordleRes> {
     await sleep(DELAY);
 
     const feedback = getGuessFeedback(rowIndex);
+    if (feedback === undefined) {
+      res["status"] = "Game Not Found";
+      return res;
+    }
+
     updateHints(absent, present, correct, feedback);
     if (correct.filter((x) => x === null).length === 0) {
       const endTime = performance.now();
       const totalTime = endTime - startTime;
+      res["answer"] = guess;
       res["status"] = "Complete";
       res["guesses"] = rowIndex + 1;
       res["totalTime"] = Math.round(totalTime) / 1000;
