@@ -9,7 +9,7 @@ export default function StrandsSolver() {
   const [guesses, setGuesses] = useState(0);
   const [status, setStatus] = useState("Ready");
   const [totalTime, setTotalTime] = useState(0);
-
+  console.log(words);
   function setStateFromRes(response: StrandsRes) {
     setStatus(response.status);
     setSpangram(response.spangram);
