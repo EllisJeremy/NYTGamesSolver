@@ -6,7 +6,7 @@ import updateHints from "./utils/updateHints";
 import sleep from "../globalUtils/sleep";
 import shrinkAnswerSpace from "./utils/shrinkAnswerSpace";
 import getNextGuess from "./utils/getNextGuess";
-import type { WordleRes } from "./wordleTypes/wordleTypes";
+import type { WordleRes } from "../../../types/responseTypes";
 
 export default async function wordleSolver(): Promise<WordleRes> {
   const startTime = performance.now();

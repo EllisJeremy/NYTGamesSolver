@@ -17,6 +17,8 @@ export default function updateHints(
     if (accuracy === "absent") {
       if (!(letter in counts)) {
         absent.add(letter);
+      } else {
+        present[letter].bannedPositions.add(position);
       }
     } else {
       if (!(letter in present)) {
