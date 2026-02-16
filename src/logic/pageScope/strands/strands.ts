@@ -39,7 +39,7 @@ export default async function strandsSolver() {
   const board = extractElements();
   if (!board) {
     res["status"] = "Game not Found";
-    return;
+    return res;
   }
 
   console.log(board);
