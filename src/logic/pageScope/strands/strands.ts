@@ -20,8 +20,10 @@ function extractElements(): HTMLElement[][] | null {
   return elements;
 }
 
-async function clickPath(elements: HTMLElement[][], path: number[][]) {
+async function clickPath(path: number[][]) {
   for (const [i, j] of path) {
+    const elements = extractElements();
+    if (!elements) return;
     elements[i][j].click();
     await sleep(Math.random() * 200 + 100);
   }
@@ -43,7 +45,7 @@ export default async function strandsSolver() {
   }
 
   console.log(board);
-  clickPath(board, [
+  clickPath([
     [0, 0],
     [0, 1],
     [0, 2],
