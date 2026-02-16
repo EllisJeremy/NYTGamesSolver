@@ -1,34 +1,29 @@
 import type { StrandsRes } from "../../../types/responseTypes";
+import sleep from "../globalUtils/sleep";
 
-type Grid = HTMLElement[][];
-
-function extractElements(): Grid {
+function extractElements(): HTMLElement[][] | null {
   const board = document.querySelector('div[class*="styles-module_board"]');
-  if (!board) throw new Error("Board not found");
+  if (!board) return null;
 
   const buttons = Array.from(board.querySelectorAll("button"));
-  const WIDTH = 6;
 
   const elements: HTMLElement[][] = [];
 
-  buttons.forEach((btn, i) => {
-    const r = Math.floor(i / WIDTH);
-    const c = i % WIDTH;
+  buttons.forEach((btn, index) => {
+    const i = Math.floor(index / 6);
+    const j = index % 6;
 
-    if (!elements[r]) elements[r] = [];
-    elements[r][c] = btn as HTMLElement;
+    if (!elements[i]) elements[i] = [];
+    elements[i][j] = btn as HTMLElement;
   });
 
   return elements;
 }
 
-async function clickPath(
-  elements: HTMLElement[][],
-  path: { r: number; c: number }[],
-) {
-  for (const { r, c } of path) {
-    elements[r][c].click();
-    await new Promise((res) => setTimeout(res, 50));
+async function clickPath(elements: HTMLElement[][], path: number[][]) {
+  for (const [i, j] of path) {
+    elements[i][j].click();
+    await sleep(Math.random() * 200 + 100);
   }
 }
 
@@ -42,8 +37,17 @@ export default async function strandsSolver() {
   };
 
   const board = extractElements();
+  if (!board) {
+    res["status"] = "Game not Found";
+    return;
+  }
+
   console.log(board);
-  clickPath(board, [{ c: 0, r: 0 }]);
+  clickPath(board, [
+    [0, 0],
+    [0, 1],
+    [0, 2],
+  ]);
 
   return res;
 }

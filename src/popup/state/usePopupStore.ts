@@ -7,6 +7,6 @@ type PopUpStoreType = {
 };
 
 export const usePopupStore = create<PopUpStoreType>((set) => ({
-  currentSolver: "wordle",
+  currentSolver: "strands",
   setCurrentSolver: (currentSolver) => set({ currentSolver }),
 }));
