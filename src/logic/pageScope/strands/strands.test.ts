@@ -1,7 +1,10 @@
 /// <reference types="jest" />
+import { PrefixTree } from "./utils/prefixTree";
 
 describe("strands", () => {
   test("prefix tree", () => {
-    console.log("test 1");
+    const seedData = ["word1", "word2", "apple"];
+    const prefixTree = new PrefixTree(seedData);
+    console.log(JSON.stringify(prefixTree));
   });
 });

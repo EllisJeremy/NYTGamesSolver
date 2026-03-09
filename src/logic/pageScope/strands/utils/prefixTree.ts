@@ -11,6 +11,10 @@ export class PrefixTree {
       next: {},
       isWord: true,
     };
+
+    for (const word of seedData) {
+      this.addWord(word);
+    }
   }
 
   addWord(word: string) {
