@@ -3,5 +3,5 @@ export default function getNextGuess(answerSpace: Set<string>): string {
     throw new Error("answer space is blank");
   }
 
-  return Array(answerSpace).pop();
+  return answerSpace.values().next().value!;
 }

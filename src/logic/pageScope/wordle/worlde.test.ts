@@ -18,11 +18,12 @@ function guessWordAndGetFeedback(
     targetCounter[letter] = (targetCounter[letter] ?? 0) + 1;
   }
   const guessCounter: Record<string, number> = {};
+  for (const letter of guess) {
+    guessCounter[letter] = (guessCounter[letter] ?? 0) + 1;
+  }
   const feedback = [];
 
   for (let i = 0; i < 5; i++) {
-    guessCounter[guess[i]] = (guessCounter[guess[i]] ?? 0) + 1;
-
     let accuracy: AccuracyEnum = "absent";
     if (guess[i] === target[i]) {
       accuracy = "correct";
@@ -30,6 +31,9 @@ function guessWordAndGetFeedback(
       target.includes(guess[i]) &&
       guessCounter[guess[i]] <= (targetCounter[guess[i]] ?? 0)
     ) {
+      console.log(target, guess, guess[i], i);
+      console.log(guessCounter[guess[i]], targetCounter[guess[i]] ?? 0);
+
       accuracy = "present in another position";
     }
     feedback.push({
@@ -51,7 +55,6 @@ function wordle(target: string): number {
 
   for (let rowIndex = 0; rowIndex <= 5; rowIndex++) {
     const feedback = guessWordAndGetFeedback(target, guess);
-    console.log(feedback);
 
     updateHints(absent, present, correct, feedback);
     if (correct.filter((x) => x === null).length === 0) {
@@ -62,7 +65,6 @@ function wordle(target: string): number {
     if (answerSpace.size === 0) {
       throw new Error(`Answer space did not contain ${target}`);
     }
-    console.log(answerSpace);
     guess =
       answerSpace.size <= 2
         ? answerSpace.values().next().value!
@@ -82,8 +84,8 @@ describe("wordle", () => {
     console.log(mean);
   });
 
-  test("one word", () => {
-    const numberOfGuesses = wordle("abbed");
+  test("one", () => {
+    const numberOfGuesses = wordle("abius");
     console.log(numberOfGuesses);
   });
 });

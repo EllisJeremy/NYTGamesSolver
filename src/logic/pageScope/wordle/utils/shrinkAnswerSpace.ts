@@ -13,7 +13,7 @@ export default function shrinkAnswerSpace(
   }
 
   function isValid(word: string): boolean {
-    const counts = [...word].reduce<Record<string, number>>((acc, c) => {
+    const counter = [...word].reduce<Record<string, number>>((acc, c) => {
       acc[c] = (acc[c] ?? 0) + 1;
       return acc;
     }, {});
@@ -24,7 +24,7 @@ export default function shrinkAnswerSpace(
     }
 
     for (const letter of Object.keys(present)) {
-      if ((counts[letter] ?? 0) < present[letter].minCount) return false;
+      if ((counter[letter] ?? 0) < present[letter].minCount) return false;
 
       for (const idx of present[letter].bannedPositions) {
         if (word[idx] === letter) return false;

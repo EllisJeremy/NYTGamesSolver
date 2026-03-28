@@ -6,7 +6,8 @@ export default function updateHints(
   correct: (string | null)[],
   feedback: LetterGuessType[],
 ) {
-  const counts = feedback.reduce<Record<string, number>>((acc, g) => {
+  console.log(feedback);
+  const counter = feedback.reduce<Record<string, number>>((acc, g) => {
     if (g.accuracy !== "absent") {
       acc[g.letter] = (acc[g.letter] ?? 0) + 1;
     }
@@ -15,7 +16,7 @@ export default function updateHints(
 
   for (const { position, letter, accuracy } of feedback) {
     if (accuracy === "absent") {
-      if (!(letter in counts)) {
+      if (!(letter in counter)) {
         absent.add(letter);
       } else {
         present[letter].bannedPositions.add(position);
@@ -29,7 +30,7 @@ export default function updateHints(
       }
       present[letter].minCount = Math.max(
         present[letter].minCount,
-        counts[letter],
+        counter[letter],
       );
 
       if (accuracy === "present in another position") {
