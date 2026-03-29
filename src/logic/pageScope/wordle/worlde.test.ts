@@ -13,37 +13,33 @@ function guessWordAndGetFeedback(
   target: string,
   guess: string,
 ): LetterGuessType[] {
-  const targetCounter: Record<string, number> = {};
+  const remaining: Record<string, number> = {};
   for (const letter of target) {
-    targetCounter[letter] = (targetCounter[letter] ?? 0) + 1;
+    remaining[letter] = (remaining[letter] ?? 0) + 1;
   }
-  const guessCounter: Record<string, number> = {};
-  for (const letter of guess) {
-    guessCounter[letter] = (guessCounter[letter] ?? 0) + 1;
-  }
-  const feedback = [];
+
+  const accuracy: AccuracyEnum[] = Array(5).fill("absent");
 
   for (let i = 0; i < 5; i++) {
-    let accuracy: AccuracyEnum = "absent";
     if (guess[i] === target[i]) {
-      accuracy = "correct";
-    } else if (
-      target.includes(guess[i]) &&
-      guessCounter[guess[i]] <= (targetCounter[guess[i]] ?? 0)
-    ) {
-      console.log(target, guess, guess[i], i);
-      console.log(guessCounter[guess[i]], targetCounter[guess[i]] ?? 0);
-
-      accuracy = "present in another position";
+      accuracy[i] = "correct";
+      remaining[guess[i]]--;
     }
-    feedback.push({
-      position: i,
-      letter: guess[i],
-      accuracy,
-    });
   }
 
-  return feedback;
+  for (let i = 0; i < 5; i++) {
+    if (accuracy[i] === "correct") continue;
+    if ((remaining[guess[i]] ?? 0) > 0) {
+      accuracy[i] = "present in another position";
+      remaining[guess[i]]--;
+    }
+  }
+
+  return Array.from({ length: 5 }, (_, i) => ({
+    position: i,
+    letter: guess[i],
+    accuracy: accuracy[i],
+  }));
 }
 
 function wordle(target: string): number {
