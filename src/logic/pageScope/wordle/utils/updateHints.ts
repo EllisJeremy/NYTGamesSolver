@@ -14,6 +14,17 @@ export default function updateHints(
     return acc;
   }, {});
 
+  // Initialize present entries before processing absent, so duplicate-letter
+  // "absent" slots can safely add to bannedPositions.
+  for (const { letter, accuracy } of feedback) {
+    if (accuracy !== "absent" && !(letter in present)) {
+      present[letter] = {
+        bannedPositions: new Set<number>(),
+        minCount: 0,
+      };
+    }
+  }
+
   for (const { position, letter, accuracy } of feedback) {
     if (accuracy === "absent") {
       if (!(letter in counter)) {
@@ -22,12 +33,6 @@ export default function updateHints(
         present[letter].bannedPositions.add(position);
       }
     } else {
-      if (!(letter in present)) {
-        present[letter] = {
-          bannedPositions: new Set<number>(),
-          minCount: 0,
-        };
-      }
       present[letter].minCount = Math.max(
         present[letter].minCount,
         counter[letter],
